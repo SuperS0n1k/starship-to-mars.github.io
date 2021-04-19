@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+.rocket::before, .rocket--planet, .rocket--planet::after, .rocket--smoke {
+  border-radius: 50%; }
+
+.rocket {
+  background-color: mediumvioletred; }
+  .rocket::before {
+    background-image: radial-gradient(ellipse at center, white 0%, mediumvioletred 70%); }
+  .rocket--fuselage .body {
+    fill: #e38ac2; }
+  .rocket--fuselage .tip,
+  .rocket--fuselage .foil {
+    fill: #eeb9da; }
+  .rocket--fuselage .stripe,
+  .rocket--fuselage .frame {
+    fill: #d85baa; }
+  .rocket--fuselage .window {
+    fill: white; }
+  .rocket--fuselage .wing {
+    fill: #dd73b6; }
+  .rocket--tail, .rocket--smoke {
+    background-color: #f4d0e7; }
+  .rocket--planet {
+    background-color: #eeb9da; }
+
+.rocket {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; }
+  .rocket::before,
+  .rocket *,
+  .rocket *::before,
+  .rocket *::after {
+    display: block;
+    position: absolute; }
+  .rocket::before {
+    width: 100em;
+    height: 100em;
+    content: "";
+    bottom: -60em;
+    left: calc(50% - 50em); }
+  .rocket--ship {
+    bottom: 40em;
+    left: calc(50% - 10em);
+    transform: translate3d(0, 0, 0) rotate(55deg); }
+  .rocket--fuselage {
+    width: 12em;
+    height: 13em;
+    transform-origin: center bottom; }
+  .rocket--contrail {
+    top: 13.5em;
+    left: 1em; }
+  .rocket--tail {
+    width: 4em;
+    height: 11.5em;
+    top: 0em;
+    left: 3em;
+    border-radius: 0 0 2em 2em; }
+  .rocket--flame {
+    width: 0em;
+    height: 0em;
+    top: 0em;
+    left: 1em;
+    border-width: 4em 1em 0 1em;
+    border-style: solid;
+    border-color: #e38ac2 transparent; }
+  .rocket--cloud {
+    top: 6em;
+    left: 0em; }
+  .rocket--smoke {
+    width: 4em;
+    height: 4em; }
+    .rocket--smoke.-one {
+      top: 1em;
+      left: 0.5em; }
+    .rocket--smoke.-two {
+      top: 0em;
+      left: 5em; }
+    .rocket--smoke.-three {
+      top: 2em;
+      left: 6em; }
+    .rocket--smoke.-five {
+      top: 4em;
+      left: 2em; }
+    .rocket--smoke.-six {
+      top: 3em;
+      left: 4em; }
+  .rocket--planet {
+    width: 60em;
+    height: 60em;
+    margin-left: -30em;
+    bottom: -44em;
+    left: 50%; }
+    .rocket--planet::after {
+      width: 4em;
+      height: 4em;
+      content: "";
+      top: calc(50% - 2em);
+      left: calc(50% - 2em);
+      box-shadow: 10em 20em 0 0 #dd73b6, 20em 10em 0 2em #dd73b6, 21em -1em 0 1em #dd73b6, 18em -6em 0 0 #dd73b6, 17em -15em 0 2em #dd73b6, 8em -22em 0 0 #dd73b6, -1em -24em 0 1em #dd73b6, -10em -21em 0 0 #dd73b6, -18em -12em 0 2em #dd73b6, -23em 7em 0 1em #dd73b6, -16em 18em 0 0 #dd73b6, -24em 0 0 0 #dd73b6, -4em 20em 0 2em #dd73b6; }
+  @media (orientation: landscape) {
+    .rocket {
+      font-size: 2vh; } }
+  @media (orientation: portrait) {
+    .rocket {
+      font-size: 1.6vw; } }
+
+.rocket--fuselage {
+  animation: rocket-ani--ship 800ms linear infinite; }
+
+.rocket--flame {
+  animation: rocket-ani--flame 1500ms ease-in-out infinite; }
+
+.rocket--smoke {
+  animation: rocket-ani--smoke 2000ms ease infinite; }
+  .rocket--smoke.-one {
+    animation-delay: .2s; }
+  .rocket--smoke.-two {
+    animation-delay: .3s; }
+  .rocket--smoke.-three {
+    animation-delay: .5s; }
+  .rocket--smoke.-five {
+    animation-delay: .5s; }
+  .rocket--smoke.-six {
+    animation-delay: 1s; }
+
+.rocket--planet {
+  animation: rocket-ani--planet 14000ms linear infinite; }
+
+@keyframes rocket-ani--ship {
+  0%,
+  100% {
+    transform: scale(1, 1); }
+  50% {
+    transform: scale(0.95, 1.05); } }
+
+@keyframes rocket-ani--smoke {
+  0%,
+  100% {
+    transform: scale(1); }
+  50% {
+    transform: scale(0); } }
+
+@keyframes rocket-ani--flame {
+  0%,
+  25%,
+  60%,
+  100% {
+    border-width: 4em 1em 0 1em; }
+  10%,
+  90% {
+    border-width: 2em 1em 0 1em; }
+  40% {
+    border-width: 3em 1em 0 1em; } }
+
+@keyframes rocket-ani--planet {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(-360deg); } }
